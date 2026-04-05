@@ -1,0 +1,32 @@
+# SEIS Backend — Python dependencies
+
+# API
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Vector store & embeddings
+sentence-transformers
+numpy
+
+# Supabase (DB, Storage, pgvector)
+supabase
+
+# Git integration
+gitpython
+
+# Document readers
+pypdf
+python-docx
+python-pptx
+
+# LLM
+google-generativeai
+google-genai
+
+# Environment
+python-dotenv
+
+# Serial bridge & hardware detection
+pyserial
+requests
