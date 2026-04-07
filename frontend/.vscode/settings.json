@@ -1,0 +1,7 @@
+{
+    // Disable VSCode's built-in CSS validator — it doesn't understand
+    // Tailwind v4's @theme, @custom-variant, and @apply at-rules.
+    "css.validate": false,
+    "scss.validate": false,
+    "less.validate": false
+}

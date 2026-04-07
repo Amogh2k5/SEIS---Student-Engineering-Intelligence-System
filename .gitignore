@@ -5,39 +5,18 @@
 .env.test.local
 .env.production.local
 
-# Virtual Environments
-venv/
-.venv/
-env/
-
-# Node.js
+# Dependencies
 node_modules/
 .next/
 out/
 build/
 dist/
 
-# Python Cache & Metadata
-__pycache__/
-*.py[cod]
-*$py.class
-.pytest_cache/
-
-# VS Code & OS
-.vscode/
-.DS_Store
-Thumbs.db
-
-# Project-specific logs & dumps
-prompts.txt
-seis_technical_dump.txt
-seis_technical_dump_full.txt
-backend/data/
-frontend/.stylelintrc.json
-frontend/tsconfig.tsbuildinfo
-frontend/.stylelintrc
-frontend/.next/
-frontend/node_modules/
-backend/__pycache__/
-backend/.env
-frontend/.env.local
+# Sensitive files
+.env*
+*.key
+*.pem
+.firebase/
+.aws/
+secrets.json
+config.local.js

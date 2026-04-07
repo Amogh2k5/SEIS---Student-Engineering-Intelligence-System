@@ -1,0 +1,273 @@
+/* stylelint-disable */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================================
+   Tailwind v4 @theme — SEIS Liquid Glass tokens
+   ========================================================= */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* ── SEIS Liquid Glass tokens ── */
+  --color-seis-accent:      #4F46E5;
+  --color-seis-accent-soft: #E0E7FF;
+  --color-seis-base:        rgba(255,255,255,0.45);
+  --color-seis-surface:     rgba(248,250,252,0.6);
+  --color-seis-sidebar:     rgba(243,244,246,0.55);
+  --color-seis-border:      rgba(255,255,255,0.20);
+  --color-seis-text:        #0f172a;
+  --color-seis-muted:       #334155;
+  --shadow-ambient:   0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-card:      0 8px 40px rgba(79,70,229,0.10), 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-float:     0 12px 40px -10px rgba(79,70,229,0.18), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-glass-long:0 8px 40px rgba(79,70,229,0.10), 0 1px 3px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* =========================================================
+   :root — Liquid Glass Mode
+   ========================================================= */
+:root {
+  --radius: 0.5rem;
+  --background:            #f0f4ff;
+  --foreground:            #0f172a;
+  --card:                  rgba(255,255,255,0.45);
+  --card-foreground:       #0f172a;
+  --popover:               rgba(255,255,255,0.75);
+  --popover-foreground:    #0f172a;
+  --primary:               #4F46E5;
+  --primary-foreground:    #FFFFFF;
+  --secondary:             rgba(243,244,246,0.55);
+  --secondary-foreground:  #0f172a;
+  --muted:                 rgba(249,250,251,0.6);
+  --muted-foreground:      #334155;
+  --accent:                #E0E7FF;
+  --accent-foreground:     #3730A3;
+  --destructive:           #EF4444;
+  --border:                rgba(255,255,255,0.20);
+  --input:                 rgba(249,250,251,0.5);
+  --ring:                  #4F46E5;
+  --sidebar:               rgba(243,244,246,0.55);
+  --sidebar-foreground:    #0f172a;
+  --sidebar-primary:       #4F46E5;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent:        #E0E7FF;
+  --sidebar-accent-foreground: #3730A3;
+  --sidebar-border:        rgba(255,255,255,0.20);
+  --sidebar-ring:          #4F46E5;
+
+  /* Physics-based Transition Tokens */
+  --ease-spring-land: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-fluid:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-symmetric:   cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* =========================================================
+   Base layer
+   ========================================================= */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100dvh;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 42%, #ede9fe 100%);
+    background-attachment: fixed;
+    color: #0f172a;
+  }
+
+  /* ── Scrollbar ─────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(99,102,241,0.35);
+    border-radius: 99px;
+    transition: background 0.2s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.6); }
+  * { scrollbar-width: thin; scrollbar-color: rgba(99,102,241,0.35) transparent; }
+
+  /* ── Selection ──────────────────────────────────────── */
+  ::selection { background: #C7D2FE; color: #3730A3; }
+}
+
+/* =========================================================
+   Utility classes — Liquid Glass Edition
+   ========================================================= */
+
+/* Liquid Glass card surface — rounded-3xl */
+.seis-card {
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  border: 1px solid rgba(255,255,255,0.20);
+  box-shadow: var(--shadow-glass-long);
+  border-radius: 24px;
+}
+
+.seis-card:hover .dashboard-card-delete {
+  opacity: 1 !important;
+}
+
+/* Sidebar item */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1e293b;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.sidebar-item:hover { background: rgba(224,231,255,0.55); color: #0f172a; }
+.sidebar-item.active { background: rgba(199,210,254,0.65); color: #3730A3; }
+
+/* Indigo pill badge */
+.seis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: rgba(224,231,255,0.75);
+  color: #3730A3;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Mode tab */
+.mode-tab {
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+}
+.mode-tab:hover { color: #0f172a; background: rgba(255,255,255,0.55); }
+.mode-tab.active {
+  background: rgba(255,255,255,0.78);
+  color: #4338CA;
+  border-color: rgba(255,255,255,0.38);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Floating input pill — rounded-full Liquid Glass */
+.chat-input-bar {
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 9999px;
+  box-shadow: var(--shadow-glass-long);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.chat-input-bar:focus-within {
+  border-color: rgba(129,140,248,0.5);
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.12), var(--shadow-glass-long);
+}
+
+/* Indigo send button — 0.4 alpha glow */
+.send-btn {
+  background: linear-gradient(135deg, #3730A3, #4F46E5);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
+  box-shadow: 0 0 18px rgba(79,70,229,0.40);
+}
+.send-btn:hover:not(:disabled) {
+  transform: scale(1.06);
+  box-shadow: 0 4px 22px rgba(79,70,229,0.55);
+}
+.send-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* Confidence bar */
+.conf-bar-track {
+  height: 4px;
+  background: rgba(224,231,255,0.6);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.conf-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4338CA, #818CF8);
+  border-radius: 9999px;
+}
+
+/* Focus accent ring */
+.ring-accent {
+  outline: 2px solid rgba(79,70,229,0.5);
+  outline-offset: 2px;
+}
+
+/* Reveal folder menu on sidebar item hover */
+.sidebar-item:hover .folder-menu-btn {
+  opacity: 1 !important;
+}
+
+/* Standalone glass shadow utility */
+.shadow-glass-long {
+  box-shadow: var(--shadow-glass-long);
+}
